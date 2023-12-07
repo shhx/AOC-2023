@@ -6,9 +6,6 @@ use std::{
 };
 
 fn get_distance(time: usize, pressed: usize) -> usize {
-    if pressed == time {
-        return 0;
-    }
     return (time - pressed) * (time - (time - pressed));
 }
 
@@ -34,7 +31,7 @@ fn main() {
 
     let time2 = times
         .iter()
-        .fold("".to_string(), |acc, f| acc + f.to_string().as_str())
+        .fold("".to_string(), |acc, f| acc + &f.to_string())
         .parse::<usize>()
         .unwrap();
     let distance2 = distances
